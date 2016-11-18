@@ -6,6 +6,7 @@ var airbnbApp = angular.module('airbnbApp',['ui.router']);
 //handles client side routing
 airbnbApp.config(function($stateProvider, $urlRouterProvider){
 	
+	console.log("Helleo");
 	$urlRouterProvider.
 		otherwise('/');
 	
@@ -13,16 +14,16 @@ airbnbApp.config(function($stateProvider, $urlRouterProvider){
 		.state('home',
 				{
 					url:'/',
+					controller : 'controllerHome',
 					templateUrl : './templates/view.homepage.html',
-					resolve : {
-						session : function($http){
-							 return $http({
+						resolve : {
+							session : function($http){
+								return $http({
 									method : "POST",
 									url : '/getusersession'
-									});
+								});
 							}
-					},
-					controller : 'controllerHome'
+						}
 				})
 		.state('home.becomeHost',
 			{
