@@ -1,7 +1,6 @@
 
 airbnbApp.controller('controllerHome',function($scope,$log,$http){
 
-	
 	//session validator
 	$scope.validSession = false;
 	//hide signInError message on get signin page
@@ -28,7 +27,7 @@ airbnbApp.controller('controllerHome',function($scope,$log,$http){
 	*/
 	$http({
 		method : "POST",
-		url : '/getusersession'
+		url : '/usergetsession'
 	}).success(function(data) {
 		if(data == 0) {
 			$scope.validSession = true;
@@ -46,10 +45,7 @@ airbnbApp.controller('controllerHome',function($scope,$log,$http){
 		// }, 3000);
 	});
 
-	$scope.test = function()
-	{
-		alert($scope.check);
-	}
+
 
 	//This function will called after submitting the signup form
 	/*
